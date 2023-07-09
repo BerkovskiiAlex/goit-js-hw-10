@@ -20,8 +20,8 @@ export function fetchBreeds() {
     .catch(error => {
       console.log(error);
       loader.classList.add('hidden');
-      errorElement.classList.remove('hidden'); // Показываем элемент с ошибкой
-      throw error; // Пробрасываем ошибку дальше для обработки
+      errorElement.classList.remove('hidden');
+      throw error;
     });
 }
 
@@ -39,7 +39,7 @@ export function fetchCatByBreed(breedId) {
     .catch(error => {
       console.log(error);
       loader.classList.add('hidden');
-      errorElement.classList.remove('hidden'); // Показываем элемент с ошибкой
-      throw error; // Пробрасываем ошибку дальше для обработки
+      errorElement.classList.remove('hidden');
+      throw error;
     });
 }

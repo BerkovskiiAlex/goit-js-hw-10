@@ -21,19 +21,19 @@ function breedSelect(breeds) {
 
 // Выполнение запроса и наполнение select при загрузке страницы
 window.addEventListener('load', event => {
-  loader.classList.remove('hidden'); // Показываем загрузчик
-  selectElement.classList.add('hidden'); // Скрываем select
-  errorElement.classList.add('hidden'); // Скрываем элемент с ошибкой
+  loader.classList.remove('hidden');
+  selectElement.classList.add('hidden');
+  errorElement.classList.add('hidden');
 
   fetchBreeds()
     .then(breeds => {
       breedSelect(breeds);
-      loader.classList.add('hidden'); // Скрываем загрузчик после завершения запроса
-      selectElement.classList.remove('hidden'); // Показываем select после завершения запроса
+      loader.classList.add('hidden');
+      selectElement.classList.remove('hidden');
     })
     .catch(error => {
       loader.classList.add('hidden');
-      errorElement.classList.remove('hidden'); // Показываем элемент с ошибкой
+      errorElement.classList.remove('hidden');
       console.log(error);
     });
 });
@@ -41,8 +41,8 @@ window.addEventListener('load', event => {
 selectElement.addEventListener('change', event => {
   const breedId = event.target.value;
 
-  catInfoContainer.classList.add('hidden'); // Скрываем информацию о коте
-  loader.classList.remove('hidden'); // Показываем загрузчик
+  catInfoContainer.classList.add('hidden');
+  loader.classList.remove('hidden');
 
   fetchBreeds()
     .then(response => {
@@ -58,18 +58,18 @@ selectElement.addEventListener('change', event => {
             <p>Description: ${breed.description}</p>
             <p>Temperament: ${breed.temperament}</p>
           `;
-          loader.classList.add('hidden'); // Скрываем загрузчик после завершения запроса
-          catInfoContainer.classList.remove('hidden'); // Показываем информацию о коте после завершения запроса
+          loader.classList.add('hidden');
+          catInfoContainer.classList.remove('hidden');
         })
         .catch(error => {
           console.log(error);
           loader.classList.add('hidden');
-          errorElement.classList.remove('hidden'); // Показываем элемент с ошибкой
+          errorElement.classList.remove('hidden');
         });
     })
     .catch(error => {
       loader.classList.add('hidden');
-      errorElement.classList.remove('hidden'); // Показываем элемент с ошибкой
+      errorElement.classList.remove('hidden');
       console.log(error);
     });
 });

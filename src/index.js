@@ -7,11 +7,9 @@ const loader = body.querySelector('.loader');
 const errorElement = body.querySelector('.error');
 
 function breedSelect(breeds) {
-  console.log(breeds);
   const selectItems = breeds.map(({ name, id }) => {
     return `<option value="${id}">${name}</option>`;
   });
-  console.log(selectItems);
   selectElement.innerHTML = selectItems.join('');
 }
 

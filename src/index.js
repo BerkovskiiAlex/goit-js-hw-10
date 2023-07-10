@@ -1,5 +1,4 @@
 import { fetchBreeds, fetchCatByBreed } from './cat-api.js';
-import Notiflix from 'notiflix';
 
 const body = document.querySelector('body');
 const selectElement = body.querySelector('.breed-select');
@@ -7,16 +6,13 @@ const catInfoContainer = body.querySelector('.cat-info');
 const loader = body.querySelector('.loader');
 const errorElement = body.querySelector('.error');
 
-// Функция для наполнения select опциями
 function breedSelect(breeds) {
-  const options = breeds.map(breed => {
-    const optionElement = document.createElement('option');
-    optionElement.value = breed.id;
-    optionElement.textContent = breed.name;
-    return optionElement.outerHTML;
+  console.log(breeds);
+  const selectItems = breeds.map(({ name, id }) => {
+    return `<option value="${id}">${name}</option>`;
   });
-
-  selectElement.innerHTML = options.join('\n');
+  console.log(selectItems);
+  selectElement.innerHTML = selectItems.join('');
 }
 
 // Выполнение запроса и наполнение select при загрузке страницы
